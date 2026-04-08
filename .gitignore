@@ -10,4 +10,5 @@ bootloader/
 modules/
 zephyr/
 zephyrproject/
-tools/
+tools/boards/ 
+boards/stm32wb55_dongle/
