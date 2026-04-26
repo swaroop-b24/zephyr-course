@@ -1,0 +1,1 @@
+add_subdirectory(stm32wb55_dongle)

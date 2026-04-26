@@ -4,19 +4,26 @@ menuconfig LED_SUBSYSTEM
 
 if LED_SUBSYSTEM
 
+# --- Homework requirement: simple int period (range 100-2000) ---
+config APP_HEARTBEAT_PERIOD_MS
+    int "Heartbeat LED blink period (ms)"
+    default 500
+    range 100 2000
+    help
+      Controls the heartbeat LED blink duration in milliseconds.
+      Change this in menuconfig and rebuild to see blink speed change.
+
+# --- Choice-based blink time (preset options) ---
 choice BLINK_SLEEP_TIME
-    prompt "LED blink sleep time"
+    prompt "LED blink sleep time (preset)"
     default BLINK_SLEEP_TIME_1000MS
 
 config BLINK_SLEEP_TIME_250MS
     bool "250ms (fast)"
-
 config BLINK_SLEEP_TIME_500MS
     bool "500ms (medium-fast)"
-
 config BLINK_SLEEP_TIME_1000MS
     bool "1s (medium)"
-
 config BLINK_SLEEP_TIME_2000MS
     bool "2s (slow)"
 
@@ -39,7 +46,7 @@ if ADVANCED_LED_SETTINGS
 config LED_BRIGHTNESS
     int "LED brightness (0-100)"
     range 0 100
-    default 100                   #default full brightness
+    default 100
 
 config LED_FADE_DURATION
     int "LED fade duration (ms)"
