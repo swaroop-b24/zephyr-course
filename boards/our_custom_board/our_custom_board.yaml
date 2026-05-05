@@ -1,0 +1,19 @@
+identifier: our_custom_board
+name: Our Custom Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 256
+flash: 1024
+supported:
+  - adc
+  - gpio
+  - i2c
+  - spi
+  - uart
+  - usb_device
+  - watchdog
+vendor: custom

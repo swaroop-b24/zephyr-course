@@ -1,0 +1,2 @@
+# boards/our_custom_board/Kconfig
+rsource "Kconfig.our_custom_board"

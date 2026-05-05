@@ -1,0 +1,6 @@
+board:
+  name: our_custom_board
+  full_name: Our Custom Board
+  vendor: swaroop
+  socs:
+  - name: nrf52840
