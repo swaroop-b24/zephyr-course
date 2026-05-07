@@ -1,0 +1,14 @@
+# Copyright (c) 2024 Swaroop
+# SPDX-License-Identifier: Apache-2.0
+
+description: Our custom LED sensor driver binding
+
+compatible: "our,driver"
+
+include: base.yaml
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: GPIO pin connected to the LED

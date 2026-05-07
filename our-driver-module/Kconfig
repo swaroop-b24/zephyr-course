@@ -1,0 +1,12 @@
+# Copyright (c) 2024 Swaroop
+# SPDX-License-Identifier: Apache-2.0
+
+menuconfig OUR_DRIVER
+    bool "Our Custom LED Sensor Driver"
+    default y
+    depends on DT_HAS_OUR_DRIVER_ENABLED
+    select GPIO
+    help
+      Enable the custom LED sensor driver.
+      Uses sensor_sample_fetch to toggle LED,
+      sensor_channel_get to read LED state.

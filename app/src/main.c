@@ -1,30 +1,42 @@
-#include <zephyr/drivers/gpio.h>
+/*
+ * Copyright (c) 2024 Swaroop
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * l6-task1: LED Sensor Driver Demo
+ * Uses sensor_sample_fetch to toggle LED
+ * Uses sensor_channel_get to read LED state
+ */
+
 #include <zephyr/kernel.h>
+#include <zephyr/device.h>
+#include <zephyr/drivers/sensor.h>
 #include <zephyr/logging/log.h>
-
-/* Use app-led alias defined in app.overlay (points to led0 on your board) */
-#define LED_NODE  DT_ALIAS(app_led)
-
-static const struct gpio_dt_spec led = GPIO_DT_SPEC_GET(LED_NODE, gpios);
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_INF);
 
 int main(void)
 {
-    bool led_state = true;
+    const struct device *dev = DEVICE_DT_GET_ANY(our_driver);
+    struct sensor_value val;
 
-    if (!gpio_is_ready_dt(&led)) return 0;
-    if (gpio_pin_configure_dt(&led, GPIO_OUTPUT_ACTIVE) < 0) return 0;
+    if (!device_is_ready(dev)) {
+        LOG_ERR("Our driver device not ready");
+        return -ENODEV;
+    }
 
-    LOG_INF("Heartbeat LED started. Period: %d ms", CONFIG_APP_HEARTBEAT_PERIOD_MS);
+    LOG_INF("LED Sensor Driver Demo started");
 
     while (1) {
-        if (gpio_pin_toggle_dt(&led) < 0) return 0;
-        led_state = !led_state;
+        /* Toggle LED via sensor_sample_fetch */
+        sensor_sample_fetch(dev);
 
-        LOG_INF("LED state: %s", led_state ? "ON" : "OFF");
+        /* Read LED state via sensor_channel_get */
+        sensor_channel_get(dev, SENSOR_CHAN_ALL, &val);
 
-        k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
+        LOG_INF("LED state from sensor_channel_get: %s",
+                val.val1 ? "ON" : "OFF");
+
+        k_msleep(1000);
     }
 
     return 0;
