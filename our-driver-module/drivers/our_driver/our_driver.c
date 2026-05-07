@@ -5,6 +5,7 @@
  * LED Sensor Driver Implementation
  * - sensor_sample_fetch: toggles the LED ON/OFF
  * - sensor_channel_get:  returns current LED state
+ * - our_driver_set_blink_interval: custom extension API (l6-task2)
  */
 
 #define DT_DRV_COMPAT our_driver
@@ -16,12 +17,13 @@
 #include <zephyr/logging/log.h>
 #include "our_drivers/our_driver.h"
 
-LOG_MODULE_REGISTER(our_driver, CONFIG_SENSOR_LOG_LEVEL);
+LOG_MODULE_REGISTER(our_driver, LOG_LEVEL_INF);
 
 /* Dynamic data struct - holds runtime state */
 struct our_driver_data {
-    int led_state;       /* 0 = OFF, 1 = ON */
-    int fetch_count;     /* number of fetches performed */
+    int led_state;              /* 0 = OFF, 1 = ON */
+    int fetch_count;            /* number of fetches performed */
+    uint32_t blink_interval_ms; /* custom extension: blink interval */
 };
 
 /* Static config struct - holds compile-time config from DTS */
@@ -46,9 +48,10 @@ static int our_driver_sample_fetch(const struct device *dev,
 
     gpio_pin_set_dt(&cfg->led_gpio, data->led_state);
 
-    LOG_INF("LED toggled: %s (fetch #%d)",
+    LOG_INF("LED toggled: %s (fetch #%d, interval: %d ms)",
             data->led_state ? "ON" : "OFF",
-            data->fetch_count);
+            data->fetch_count,
+            data->blink_interval_ms);
 
     return 0;
 }
@@ -64,17 +67,40 @@ static int our_driver_channel_get(const struct device *dev,
         return -ENOTSUP;
     }
 
-    val->val1 = data->led_state;  /* 0 = OFF, 1 = ON */
+    val->val1 = data->led_state;
     val->val2 = 0;
 
     return 0;
 }
 
-/* Public API: get LED state directly */
+/* Custom extension API: get LED state */
 int our_driver_get_led_state(const struct device *dev)
 {
     struct our_driver_data *data = dev->data;
     return data->led_state;
+}
+
+/* Custom extension API: set blink interval - changes dynamic data struct */
+int our_driver_set_blink_interval(const struct device *dev, uint32_t interval_ms)
+{
+    struct our_driver_data *data = dev->data;
+
+    if (interval_ms == 0) {
+        LOG_ERR("Interval must be > 0");
+        return -EINVAL;
+    }
+
+    data->blink_interval_ms = interval_ms;
+    LOG_INF("Blink interval updated to %d ms", data->blink_interval_ms);
+
+    return 0;
+}
+
+/* Custom extension API: get blink interval */
+uint32_t our_driver_get_blink_interval(const struct device *dev)
+{
+    struct our_driver_data *data = dev->data;
+    return data->blink_interval_ms;
 }
 
 /* Driver init function */
@@ -92,8 +118,10 @@ static int our_driver_init(const struct device *dev)
 
     data->led_state = 0;
     data->fetch_count = 0;
+    data->blink_interval_ms = 1000; /* default 1000ms */
 
-    LOG_INF("Our Driver initialized");
+    LOG_INF("Our Driver initialized. Default blink interval: %d ms",
+            data->blink_interval_ms);
     return 0;
 }
 
