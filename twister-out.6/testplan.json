@@ -1,0 +1,23 @@
+{
+    "environment":{
+        "os":"Windows",
+        "zephyr_version":"v4.4.0-rc1-332-g54ee8ecb102b",
+        "toolchain":"zephyr/gnu",
+        "commit_date":"2026-04-01T15:13:24-05:00",
+        "run_date":"2026-05-30T12:43:34+00:00",
+        "options":{
+            "help":null,
+            "zephyr_base":null,
+            "quiet":0,
+            "command":"twister",
+            "testsuite_root":[
+                "tests/ring_buf"
+            ],
+            "device_testing":true,
+            "platform":[
+                "qemu_x86"
+            ]
+        }
+    },
+    "testsuites":[]
+}

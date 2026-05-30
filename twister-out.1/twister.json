@@ -1,0 +1,87 @@
+{
+    "environment":{
+        "os":"Windows",
+        "zephyr_version":"v4.4.0-rc1-332-g54ee8ecb102b",
+        "toolchain":"zephyr/gnu",
+        "commit_date":"2026-04-01T15:13:24-05:00",
+        "run_date":"2026-05-30T07:18:37+00:00",
+        "options":{
+            "help":null,
+            "zephyr_base":null,
+            "quiet":0,
+            "command":"twister",
+            "testsuite_root":[
+                "tests/ring_buf"
+            ],
+            "platform":[
+                "qemu_x86"
+            ]
+        }
+    },
+    "testsuites":[
+        {
+            "name":"homework.unit.ring_buf",
+            "arch":"x86",
+            "platform":"qemu_x86/atom",
+            "path":"..\\tests\\ring_buf",
+            "run_id":"dc9ff5940b494844b842f1e9e3891422",
+            "runnable":false,
+            "retries":0,
+            "toolchain":"zephyr/gnu",
+            "status":"not run",
+            "reason":null,
+            "execution_time":"0.00",
+            "build_time":"91.76",
+            "testcases":[
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_boundaries.is_full_after_fill",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_boundaries.pop_null_returns_einval",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_boundaries.peek_does_not_consume",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_push_pop.push_full_returns_enospc",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_push_pop.fifo_order",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_push_pop.single_push_pop",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_init.reinit_clears_state",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                },
+                {
+                    "identifier":"homework.unit.ring_buf.ring_buf_init.fresh_state",
+                    "execution_time":"0.00",
+                    "status":"not run",
+                    "reason":"Test was built only"
+                }
+            ]
+        }
+    ]
+}

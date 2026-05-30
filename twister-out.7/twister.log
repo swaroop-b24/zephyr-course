@@ -1,0 +1,45 @@
+2026-05-30 18:19:57,033 - twister - INFO - Using Ninja..
+2026-05-30 18:19:57,434 - twister - INFO - Zephyr version: v4.4.0-rc1-332-g54ee8ecb102b
+2026-05-30 18:19:57,527 - twister - DEBUG - Running cmake script F:\swaroopb_zephyr\zephyr-course\zephyr\cmake\verify-toolchain.cmake
+2026-05-30 18:19:57,531 - twister - DEBUG - Calling cmake: ['C:\\Program Files\\CMake\\bin\\cmake.EXE', '-DFORMAT=json', '-P', 'F:\\swaroopb_zephyr\\zephyr-course\\zephyr\\cmake\\verify-toolchain.cmake']
+2026-05-30 18:19:59,252 - twister - DEBUG - Finished running F:\swaroopb_zephyr\zephyr-course\zephyr\cmake\verify-toolchain.cmake
+2026-05-30 18:19:59,252 - twister - INFO - Using 'zephyr/gnu' toolchain variant.
+2026-05-30 18:20:01,996 - twister - DEBUG - Reading testsuite configuration files under F:\swaroopb_zephyr\zephyr-course\tests\ring_buf...
+2026-05-30 18:20:01,996 - twister - DEBUG - Found possible testsuite in F:\swaroopb_zephyr\zephyr-course\tests\ring_buf
+2026-05-30 18:20:02,003 - twister - DEBUG - No duplicates found.
+2026-05-30 18:20:02,003 - twister - DEBUG -  platform filter: ['qemu_x86']
+2026-05-30 18:20:02,003 - twister - DEBUG - platform_pattern: []
+2026-05-30 18:20:02,003 - twister - DEBUG -    vendor filter: []
+2026-05-30 18:20:02,003 - twister - DEBUG -      arch_filter: None
+2026-05-30 18:20:02,003 - twister - DEBUG -       tag_filter: None
+2026-05-30 18:20:02,003 - twister - DEBUG -      exclude_tag: None
+2026-05-30 18:20:02,004 - twister - DEBUG - Checking platform filter: ['qemu_x86']
+2026-05-30 18:20:02,004 - twister - INFO - Building initial testsuite list...
+2026-05-30 18:20:02,010 - twister - INFO - Built testsuite list in 0.01 seconds
+2026-05-30 18:20:02,011 - twister - INFO - Writing JSON report F:\swaroopb_zephyr\zephyr-course\twister-out\testplan.json
+2026-05-30 18:20:02,184 - twister - INFO - Adding tasks to the queue...
+2026-05-30 18:20:02,184 - twister - DEBUG - adding qemu_x86/atom\zephyr/gnu\homework.unit.ring_buf
+2026-05-30 18:20:02,842 - twister - INFO - Added initial list of jobs to queue
+2026-05-30 18:20:03,918 - twister - DEBUG - Running cmake on F:\swaroopb_zephyr\zephyr-course\tests\ring_buf for qemu_x86/atom
+2026-05-30 18:20:03,925 - twister - DEBUG - Calling cmake: ['C:\\Program Files\\CMake\\bin\\cmake.EXE', '-BF:\\swaroopb_zephyr\\zephyr-course\\twister-out\\qemu_x86_atom\\zephyr_gnu\\tests\\ring_buf\\homework.unit.ring_buf', '-DTC_RUNID=e86f69d69eea1f8c02f8e897c43a5810', '-DTC_NAME=homework.unit.ring_buf', '-DCONFIG_COMPILER_WARNINGS_AS_ERRORS=y', '-DEXTRA_GEN_EDT_ARGS=--edtlib-Werror', '-GNinja', '-DPython3_EXECUTABLE=C:/Users/sange/zephyrproject/.venv/Scripts/python.exe', '-DZEPHYR_TOOLCHAIN_VARIANT=zephyr/gnu', '-SF:\\swaroopb_zephyr\\zephyr-course\\tests\\ring_buf', '-DQEMU_PIPE=F:\\swaroopb_zephyr\\zephyr-course\\twister-out\\qemu_x86_atom\\zephyr_gnu\\tests\\ring_buf\\homework.unit.ring_buf\\qemu-fifo', '-DBOARD=qemu_x86/atom']
+2026-05-30 18:20:12,986 - twister - DEBUG - Launched 8 jobs
+2026-05-30 18:20:34,489 - twister - DEBUG - Finished running cmake F:\swaroopb_zephyr\zephyr-course\tests\ring_buf for qemu_x86/atom in 30.56 seconds
+2026-05-30 18:20:34,495 - twister - DEBUG - build test: qemu_x86/atom\zephyr/gnu\homework.unit.ring_buf
+2026-05-30 18:20:34,495 - twister - DEBUG - Building F:\swaroopb_zephyr\zephyr-course\tests\ring_buf for qemu_x86/atom
+2026-05-30 18:20:34,514 - twister - DEBUG - Running C:\Program Files\CMake\bin\cmake.EXE --build F:\swaroopb_zephyr\zephyr-course\twister-out\qemu_x86_atom\zephyr_gnu\tests\ring_buf\homework.unit.ring_buf
+2026-05-30 18:20:52,176 - twister - DEBUG - Finished building F:\swaroopb_zephyr\zephyr-course\tests\ring_buf for qemu_x86/atom in 17.68 seconds
+2026-05-30 18:20:52,183 - twister - DEBUG - Determine test cases for test instance: qemu_x86/atom\zephyr/gnu\homework.unit.ring_buf
+2026-05-30 18:20:52,183 - twister - DEBUG - Determine test cases for test suite: homework.unit.ring_buf
+2026-05-30 18:20:52,268 - twister - DEBUG - Test instance qemu_x86/atom\zephyr/gnu\homework.unit.ring_buf already has 8 testcase(s) known: [<TestCase homework.unit.ring_buf.ring_buf_boundaries.pop_null_returns_einval with not run>, <TestCase homework.unit.ring_buf.ring_buf_push_pop.single_push_pop with not run>, <TestCase homework.unit.ring_buf.ring_buf_init.fresh_state with not run>, <TestCase homework.unit.ring_buf.ring_buf_boundaries.peek_does_not_consume with not run>, <TestCase homework.unit.ring_buf.ring_buf_push_pop.push_full_returns_enospc with not run>, <TestCase homework.unit.ring_buf.ring_buf_boundaries.is_full_after_fill with not run>, <TestCase homework.unit.ring_buf.ring_buf_push_pop.fifo_order with not run>, <TestCase homework.unit.ring_buf.ring_buf_init.reinit_clears_state with not run>]
+2026-05-30 18:20:52,268 - twister - DEBUG - Detected 8 Ztest case(s): [homework.unit.ring_buf.ring_buf_boundaries.is_full_after_fill, homework.unit.ring_buf.ring_buf_boundaries.pop_null_returns_einval, homework.unit.ring_buf.ring_buf_boundaries.peek_does_not_consume, homework.unit.ring_buf.ring_buf_push_pop.push_full_returns_enospc, homework.unit.ring_buf.ring_buf_push_pop.fifo_order, homework.unit.ring_buf.ring_buf_push_pop.single_push_pop, homework.unit.ring_buf.ring_buf_init.reinit_clears_state, homework.unit.ring_buf.ring_buf_init.fresh_state] in F:\swaroopb_zephyr\zephyr-course\twister-out\qemu_x86_atom\zephyr_gnu\tests\ring_buf\homework.unit.ring_buf\zephyr\zephyr.elf
+2026-05-30 18:20:52,270 - twister - DEBUG - Instance qemu_x86/atom\zephyr/gnu\homework.unit.ring_buf can't run (run:False, handler.ready:True)
+2026-05-30 18:20:52,366 - twister - INFO - 1 test scenarios (1 configurations) selected, 0 configurations filtered (0 by static filter, 0 at runtime).
+2026-05-30 18:20:52,430 - twister - INFO - [32m0 of 1[39m executed test configurations passed (0.00%), [36m1[39m built (not run), 0 failed, 0 errored, with no warnings in 55.40 seconds.
+2026-05-30 18:20:52,431 - twister - INFO - 0 of 0 executed test cases passed (0.00%) on 0 out of total 1473 platforms (0.00%).
+2026-05-30 18:20:52,431 - twister - INFO - 8 selected test cases not executed: 8 not run (built only).
+2026-05-30 18:20:52,432 - twister - INFO - [32m0[39m test configurations executed on platforms, [36m1[39m test configurations were only built.
+2026-05-30 18:20:52,432 - twister - INFO - Saving reports...
+2026-05-30 18:20:52,432 - twister - INFO - Writing JSON report F:\swaroopb_zephyr\zephyr-course\twister-out\twister.json
+2026-05-30 18:20:52,440 - twister - INFO - Writing xunit report F:\swaroopb_zephyr\zephyr-course\twister-out\twister.xml...
+2026-05-30 18:20:52,487 - twister - INFO - Writing xunit report F:\swaroopb_zephyr\zephyr-course\twister-out\twister_report.xml...
+2026-05-30 18:20:52,506 - twister - INFO - Run completed
