@@ -17,3 +17,6 @@ Make sure to select appropriate OS and to perform all steps till
 
 
 
+## Lecture 8 — Ring Buffer Coverage Report
+
+[View the live gcovr coverage report](https://swaroop-b24.github.io/zephyr-course/)
